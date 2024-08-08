@@ -1,21 +1,3 @@
-# Sistema de Ranking de Heróis
-
-Este projeto é um programa Java que permite ao usuário inserir informações sobre quatro heróis, incluindo o nome e o valor de XP (experiência) de cada herói. O programa determina a classificação dos heróis com base em seu XP e exibe um ranking do melhor ao pior.
-
-## Funcionalidades
-
-- **Entrada de Dados:** O programa solicita ao usuário o nome e o valor de XP para quatro heróis.
-- **Classificação:** Após a entrada dos dados, o programa classifica os heróis com base no valor de XP, do maior para o menor.
-- **Exibição de Resultados:** O programa exibe a classificação dos heróis, incluindo seu nome e o valor de XP, em ordem decrescente de XP.
-
-## Estrutura do Código
-
-1. **Classe `Heroi`:** Representa um herói com um nome e um valor de XP.
-2. **Classe `Main`:** Contém o método `main` onde ocorre a execução principal do programa. Inclui a leitura de entrada, a lógica de classificação e a exibição dos resultados.
-
-### Código
-
-```java
 import java.util.*;
 
 class Heroi {
@@ -46,11 +28,11 @@ public class Main {
 
             System.out.println("Qual o valor de Xp desse Herói:");
             Double xp = scanner.nextDouble();
-            scanner.nextLine(); // Limpa a nova linha pendente após a leitura do número
+            scanner.nextLine();
 
             herois.add(new Heroi(nome, xp));
 
-            // Determine o título baseado no XP
+
             String titulo;
             if (xp < 1000) {
                 titulo = "Ferro";
@@ -72,10 +54,10 @@ public class Main {
             System.out.println(nome + " é " + titulo);
         }
 
-        // Classificar heróis por XP em ordem decrescente
+
         herois.sort((h1, h2) -> h2.xp.compareTo(h1.xp));
 
-        // Exibir o ranking
+
         System.out.println("\nRanking dos Heróis por XP:");
         for (int i = 0; i < herois.size(); i++) {
             Heroi heroi = herois.get(i);
@@ -85,4 +67,3 @@ public class Main {
         scanner.close();
     }
 }
-```
